@@ -1,0 +1,15 @@
+version: '3.6'
+services:
+  reverse-proxy:
+    container_name: reverse-proxy
+    image: caddy:2-alpine
+    restart: unless-stopped
+    network_mode: host
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /home/x-wing/www/caddy/Caddyfile:/etc/Caddyfile
+      - /home/x-wing/www/caddy/data:/data
+      - /home/x-wing/www/caddy/config:/config
+      - /mnt/sdb/www/caddy/static:/var/www/static

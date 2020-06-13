@@ -1,0 +1,27 @@
+www.sunbeam.cf, sunbeam.cf {
+    reverse_proxy / 127.0.0.1:2368
+    tls wesleyrporter@gmail.com
+}
+
+static.sunbeam.cf {
+    root /var/www/static
+    file_server browse {
+        root /usr/share/caddy
+    }
+    encode gzip
+}
+
+clobber.sunbeam.cf {
+    reverse_proxy / 127.0.0.1:2015
+}
+
+games.sunbeam.cf {
+    reverse_proxy / 127.0.0.1:3020
+}
+
+checkit.sunbeam.cf {
+    limits 8000
+
+    reverse_proxy / 127.0.0.1:9010
+    reverse_proxy /api 127.0.0.1:9000
+}

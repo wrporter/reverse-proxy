@@ -1,0 +1,46 @@
+www.sunbeam.cf, sunbeam.cf {
+    proxy / 127.0.0.1:2368 {
+        header_upstream Host {host}
+        header_upstream X-Real-IP {remote}
+        header_upstream X-Forwarded-Proto {scheme}
+    }
+    tls wesleyrporter@gmail.com
+}
+
+static.sunbeam.cf {
+    root /var/www/static
+    gzip
+    browse
+}
+
+clobber.sunbeam.cf {
+    proxy / 127.0.0.1:2015 {
+        header_upstream Host {host}
+        header_upstream X-Real-IP {remote}
+        header_upstream X-Forwarded-Proto {scheme}
+    }
+}
+
+games.sunbeam.cf {
+    proxy / 127.0.0.1:3020 {
+        header_upstream Host {host}
+        header_upstream X-Real-IP {remote}
+        header_upstream X-Forwarded-Proto {scheme}
+    }
+}
+
+checkit.sunbeam.cf {
+    limits 8000
+
+    proxy / 127.0.0.1:9010 {
+        header_upstream Host {host}
+        header_upstream X-Real-IP {remote}
+        header_upstream X-Forwarded-Proto {scheme}
+    }
+    proxy /api 127.0.0.1:9000 {
+        header_upstream Host {host}
+        header_upstream X-Real-IP {remote}
+        header_upstream X-Forwarded-Proto {scheme}
+        websocket
+    }
+}
