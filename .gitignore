@@ -1,2 +1,4 @@
 .idea
 *.iml
+caddy_data
+caddy_config

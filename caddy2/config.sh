@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 APP_NAME="reverse-proxy"
-PORT=3050
 
 DOCKER_REGISTRY_URL="${DOCKER_REGISTRY_URL:-}"
 IMAGE_PATH="${IMAGE_PATH:-${APP_NAME}}"

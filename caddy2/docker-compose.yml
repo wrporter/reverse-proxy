@@ -9,7 +9,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /home/x-wing/www/caddy/Caddyfile:/etc/Caddyfile
-      - /home/x-wing/www/caddy/data:/data
-      - /home/x-wing/www/caddy/config:/config
+      - /home/x-wing/www/reverse-proxy/Caddyfile:/etc/caddy/Caddyfile
+      - /home/x-wing/www/reverse-proxy/data:/data
+      - /home/x-wing/www/reverse-proxy/config:/config
       - /mnt/sdb/www/caddy/static:/var/www/static
