@@ -16,7 +16,7 @@ clobber.sunbeam.cf {
 }
 
 games.sunbeam.cf {
-    reverse_proxy 127.0.0.1:3020
+    reverse_proxy http://127.0.0.1:3019
 }
 
 checkit.sunbeam.cf {
