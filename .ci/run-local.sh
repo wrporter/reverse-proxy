@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source caddy2/config.sh
+source .ci/config.sh
 
 docker run \
 	--rm \

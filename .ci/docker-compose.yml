@@ -1,0 +1,25 @@
+version: '3.8'
+
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+    driver: bridge
+
+services:
+  reverse-proxy:
+    container_name: reverse-proxy
+    image: caddy:2.5.1-alpine
+    restart: unless-stopped
+    ports:
+      - 2000:80
+      - 2443:443
+    networks:
+      - web
+      - internal
+    volumes:
+      - /volume1/docker/reverse-proxy/Caddyfile:/etc/caddy/Caddyfile
+      - /volume1/docker/reverse-proxy/data:/data
+      - /volume1/docker/reverse-proxy/config:/config
+      - /volume1/docker/reverse-proxy/static:/var/www/static

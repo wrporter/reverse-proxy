@@ -1,0 +1,25 @@
+www.sunbeam.ga, sunbeam.ga {
+    reverse_proxy ghost:2368
+    tls wesleyrporter@gmail.com
+}
+
+static.sunbeam.ga {
+    root * /var/www/static
+    file_server browse {
+        root /var/www/static
+    }
+    encode gzip
+}
+
+clobber.sunbeam.ga {
+    reverse_proxy clobber:2015
+}
+
+games.sunbeam.ga {
+    reverse_proxy http://127.0.0.1:3019
+}
+
+checkit.sunbeam.ga {
+    reverse_proxy checkit-ui:80
+    reverse_proxy /api* checkit-api:9000
+}
