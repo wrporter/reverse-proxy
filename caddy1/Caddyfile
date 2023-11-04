@@ -4,7 +4,7 @@ www.sunbeam.cf, sunbeam.cf {
         header_upstream X-Real-IP {remote}
         header_upstream X-Forwarded-Proto {scheme}
     }
-    tls wesleyrporter@gmail.com
+    tls xxx-email@domain.com
 }
 
 static.sunbeam.cf {
